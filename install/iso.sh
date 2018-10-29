@@ -6,4 +6,5 @@ mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt
 pacstrap /mnt `cat list-pkg`
 ls /mnt
 genfstab -U /mnt >> /mnt/etc/fstab 
-arch-chroot /mnt
+cp chroot.sh /mnt/root/
+arch-chroot /mnt /root/chroot.sh
