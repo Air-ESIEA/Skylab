@@ -2,7 +2,6 @@ label: gpt
 device: /dev/sda
 unit: sectors
 first-lba: 2048
-last-lba: 41943006
 
 , +1M, 21686148-6449-6E6F-744E-656564454649
 , +10G, 0FC63DAF-8483-4772-8E79-3D69D8477DE4
