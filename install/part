@@ -1,5 +1,4 @@
 label: gpt
-label-id: 0C22D6FD-D3BA-FA46-8F4D-927C0B278FDF
 device: /dev/sda
 unit: sectors
 first-lba: 2048

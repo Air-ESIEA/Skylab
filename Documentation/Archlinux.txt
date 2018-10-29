@@ -1,0 +1,14 @@
+All files required to install Archlinux on a System for the skylab project
+is included in install/.
+
+All documentation on specific matter should be searched on the wiki :
+It is far better explained, and it would be impossible to compile all info into this file
+
+Nonetheless, the basic steps to debug your archlinux system should be :
+For a service:
+	- Check unit status (systemctl status unit)
+	- check unit journal (journalctl -b -u unit)
+	- check logs (in /var/log? or in any location the log file is supposed to be)
+	- try to restart service
+
+
