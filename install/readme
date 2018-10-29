@@ -1,0 +1,3 @@
+run iso.sh at iso boot
+run chroot.sh at chroot step
+enjoy
