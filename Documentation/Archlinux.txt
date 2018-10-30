@@ -11,4 +11,9 @@ For a service:
 	- check logs (in /var/log? or in any location the log file is supposed to be)
 	- try to restart service
 
+pacman -Syu			# update repo (y) and upgrade pkgs (u)
+				# use uu to force repo refresh, uu to for pkg
 
+pacman -Fs			# search command
+pacman -Qi	pkg		# pkg info, op. dependancies etc.
+pacman -S			# install packets
