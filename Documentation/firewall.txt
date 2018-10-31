@@ -1,0 +1,5 @@
+Firewall is configured with iptables
+
+To open port use:
+#	iptables --append [CHAIN] --protocol [PROTOCOL] --match [PROTOCOL] --dport [PORT] --jump ACCEPT
+#	iptables-save > /etc/iptables/file.rules
