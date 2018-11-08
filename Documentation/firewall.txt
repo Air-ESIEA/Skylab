@@ -1,5 +1,9 @@
 Firewall is configured with iptables
 
+open port :
+ssh		22
+domain	53
+samba		i137 - 138 -138 - 445
 To open port use:
 #	iptables --append [CHAIN] --protocol [PROTOCOL] --match [PROTOCOL] --dport [PORT] --jump ACCEPT
 #	iptables-save > /etc/iptables/file.rules
