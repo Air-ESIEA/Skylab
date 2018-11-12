@@ -37,7 +37,7 @@
 # Running as "active directory domain controller" will require first
 # running "samba-tool domain provision" to wipe databases and create a
 # new domain.
-   server role = standalone server
+   server role = member server
 
 # This option is important for security. It allows you to restrict
 # connections to machines which are on your local network. The
