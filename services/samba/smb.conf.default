@@ -114,6 +114,7 @@
    comment = Home Directories
    browseable = no
    writable = yes
+   valid users = %S
 
 # Un-comment the following and create the netlogon directory for Domain Logons
 ; [netlogon]
@@ -144,11 +145,11 @@
    printable = yes
 
 # This one is useful for people to share files
-;[tmp]
-;   comment = Temporary file space
-;   path = /tmp
-;   read only = no
-;   public = yes
+[tmp]
+   comment = Temporary file space
+   path = /tmp
+   read only = no
+   public = yes
 
 # A publicly accessible directory, but read only, except for people in
 # the "staff" group
@@ -219,3 +220,12 @@
 ;   writable = yes
 ;   printable = no
 ;   create mask = 0765
+
+[Air-ESIEA_Share01]
+path = /shares/Air-ESIEA_share01
+writable = yes
+browseable = yes
+create mask = 0700
+directory mask = 0700
+read only = no
+guest ok = no
