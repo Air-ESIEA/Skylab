@@ -229,7 +229,7 @@ show add printer wizard = no
 ;   printable = no
 ;   create mask = 0765
 
-[Air-ESIEA_Share01]
+[AirESIEA01]
 path = /shares/AirESIEA01
 writable = yes
 browseable = yes
