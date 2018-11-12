@@ -9,7 +9,7 @@ sudo chmod -R 770 /shares/AirESIEA01
 chmod 1770 /shares/AirESIEA01
 
 # #Add userX to the sambausers group
-# useradd -g sambausers userX
+# usermod -aG sambausers userX
 #
 # #create new password for user userX
 # smbpasswd -a userX
