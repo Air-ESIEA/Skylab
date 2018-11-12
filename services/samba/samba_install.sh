@@ -3,6 +3,7 @@ wget https://raw.githubusercontent.com/Air-ESIEA/Skylab/master/services/samba/sm
 cp /etc/samba/smb.conf{.default,}
 mkdir -p /shares/Air-ESIEA_share01
 groupadd -r sambausers
+mkdir -p /shares/share01
 chown -R root:sambausers /shares/Air-ESIEA_share01
 chmod 1770 /shares/Air-ESIEA_share01
 
