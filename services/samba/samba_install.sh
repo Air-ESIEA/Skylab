@@ -5,10 +5,11 @@ mkdir -p /shares/Air-ESIEA_share01
 groupadd -r sambausers
 mkdir -p /shares/share01
 chown -R root:sambausers /shares/Air-ESIEA_share01
+sudo chmod -R 770 /shares/Air-ESIEA_share01
 chmod 1770 /shares/Air-ESIEA_share01
 
 # #Add userX to the sambausers group
-# sudo passwd sambausers -a userX
+# useradd -g sambausers userX
 #
 # #create new password for user userX
-# sudo smbpasswd -a userX
+# smbpasswd -a userX
