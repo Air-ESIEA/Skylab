@@ -22,6 +22,12 @@
 #======================= Global Settings =====================================
 [global]
 
+load printers = no
+printing = bsd
+printcap name = /dev/null
+disable spoolss = yes
+show add printer wizard = no
+
 # workgroup = NT-Domain-Name or Workgroup-Name, eg: MIDEARTH
    workgroup = WORKGROUP
 
@@ -109,6 +115,8 @@
 ;  delete group script = /usr/sbin/groupdel %g
 
 
+
+
 #============================ Share Definitions ==============================
 [homes]
    comment = Home Directories
@@ -118,11 +126,11 @@
 
 # Un-comment the following and create the netlogon directory for Domain Logons
 ; [netlogon]
-;   comment = Network Logon Service
-;   path = /usr/local/samba/lib/netlogon
-;   guest ok = yes
-;   writable = no
-;   share modes = no
+   comment = Network Logon Service
+   path = /usr/local/samba/lib/netlogon
+   guest ok = yes
+   writable = no
+   share modes = no
 
 
 # Un-comment the following to provide a specific roving profile share
@@ -222,7 +230,7 @@
 ;   create mask = 0765
 
 [Air-ESIEA_Share01]
-path = /shares/Air-ESIEA_share01
+path = /shares/AirESIEA01
 writable = yes
 browseable = yes
 create mask = 0700

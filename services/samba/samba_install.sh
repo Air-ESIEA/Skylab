@@ -1,10 +1,10 @@
 pacman -S --noconfirm samba
 wget https://raw.githubusercontent.com/Air-ESIEA/Skylab/master/services/samba/smb.conf.default -O /etc/samba/smb.conf.default
 cp /etc/samba/smb.conf{.default,}
-mkdir -p /shares/Air-ESIEA_share01
+mkdir -p /shares/AirESIEA01
 groupadd -r sambausers
 mkdir -p /shares/share01
-chown -R root:sambausers /shares/Air-ESIEA_share01
+chown -R root:sambausers /shares/AirESIEA01
 sudo chmod -R 770 /shares/Air-ESIEA_share01
 chmod 1770 /shares/Air-ESIEA_share01
 
