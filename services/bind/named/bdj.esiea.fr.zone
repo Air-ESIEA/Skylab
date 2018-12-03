@@ -1,0 +1,16 @@
+
+$TTL 7200
+ ; bdj.esiea.fr
+bdj.esiea.fr.       IN      SOA    ns.bdj.esiea.fr. contact.bdj.esiea.fr. (
+                                         3 ; Serial
+                                         28800      ; Refresh
+                                         1800       ; Retry
+                                         604800     ; Expire - 1 week
+                                         86400 )    ; Minimum
+@		NS	ns.bdj.esiea.fr.
+@		NS	ns2.bdj.esiea.fr.
+@		MX	60 mail.bdj.esiea.fr.
+ns		IN	A	88.170.232.166
+ns2		IN	A	88.170.232.166
+bdj.esiea.fr.	IN	A       88.170.232.166
+mail		IN	A	88.170.232.166

@@ -1,0 +1,24 @@
+
+$TTL 7200
+ ; air.esiea.fr
+air.esiea.fr.	IN	SOA	ns1.air.esiea.fr. contact.air.esiea.fr. (
+			10
+			28800
+			1800
+			604800
+			86400 )
+
+@		NS	ns1.air.esiea.fr.
+@		NS	ns2.air.esiea.fr.
+
+@			IN	A       88.170.232.166
+
+ns1			IN	A	88.170.232.166
+ns2			IN	A	88.170.232.166
+
+@			IN	MX	60 smtp.air.esiea.fr.
+
+git			IN	A    	88.170.232.166
+nextcloud		IN	A    	88.170.232.166
+smtp.air		IN	A	88.170.232.166
+imap.air		IN	A	88.170.232.166

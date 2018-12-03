@@ -1,0 +1,24 @@
+
+$TTL 7200
+ ; air.esiea.fr
+skylab.tk.	IN	SOA	ns1.skylab.tk. contact.skylab.tk. (
+			10
+			28800
+			1800
+			604800
+			86400 )
+
+@		NS	ns1.skylab.tk.
+@		NS	ns2.skylab.tk.
+
+@		MX	60 smtp.skylab.tk.
+
+ns1		IN	A	88.170.232.166
+ns2		IN	A	88.170.232.166
+
+@		IN	A       88.170.232.166
+
+git		IN	A    	88.170.232.166
+nextcloud	IN	A    	88.170.232.166
+smtp		IN	A	88.170.232.166
+imap		IN	A	88.170.232.166
