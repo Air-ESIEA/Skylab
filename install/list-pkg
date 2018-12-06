@@ -1,1 +1,1 @@
-base base-devel bash-completion openssh vim elinks apache php-apache mariadb nextcloud samba gitlab dovecot postfix bind bind-tools ferm borg php wget tmux
+base base-devel bash-completion openssh vim elinks apache php-apache mariadb nextcloud samba dovecot postfix bind bind-tools ferm borg php wget tmux
