@@ -15,27 +15,27 @@ echo -e "${NC}"
 
 #Program
 echo -e "\t\t${YELLOW}[Running]${WHITE} Set datetime${NC}"
-timedatectl set-ntp 1 &> log.log 2> error.log
+timedatectl set-ntp 1 &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Set datetime${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Partitioning${NC}"
-sfdisk /dev/sda < part &> log.log 2> error.log
+sfdisk /dev/sda < part &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Partitioning${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Formatting and mounting${NC}"
-mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage &> log.log 2> error.log
+mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Formatting and mounting${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Installation of basic packages${NC}"
-pacstrap /mnt base base-devel &> log.log 2> error.log
+pacstrap /mnt base base-devel &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Installation of basic packages${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Generate fstab file${NC}"
-genfstab -U /mnt >> /mnt/etc/fstab &> log.log 2> error.log
+genfstab -U /mnt >> /mnt/etc/fstab &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Generate fstab file${NC}   "
 
 
@@ -50,5 +50,5 @@ echo -e "\t\t${YELLOW}[Run]${WHITE} Chroot script${NC}"
   then
     cp error.log /mnt/root
   arch-chroot /mnt /root/chroot.sh
-} &> log.log 2> error.log
+} &>> log.log 2> error.log
 echo -e "\t\t${GREEN}[Done]${WHITE} Chroot script${NC}"

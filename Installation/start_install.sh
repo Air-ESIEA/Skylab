@@ -22,22 +22,14 @@ echo -e "${BG_ORANGE}${YELLOW}[Downloading]${WHITE} Installation scripts${NC}"
 {
   pacman -Sy --noconfirm git
   git clone http://github.com/Air-ESIEA/Skylab
-} &> log.log 2> error.log
+} &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41${BG_ORANGE}${GREEN}[Downloaded]${WHITE} Installation scripts${NC} "
 
 
 echo -e "\t${BG_WHITE}${YELLOW}[Run]${WHITE} Installation script${NC}"
 cd Skylab/Installation/install
 ./install.sh
-if [$? -ne 0]
-then {
-  echo -e "\t${BG_WHITE}${YELLOW}[Done]${WHITE} Installation script${NC}"
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\t${BG_WHITE}${GREEN}[Done]${WHITE} Installation script${NC}"
-}
-echo $ERROR >> $STACK_ERROR
+echo -e "\t${BG_WHITE}${GREEN}[Done]${WHITE} Installation script${NC}"
 
 
 echo -e "${BG_WHITE}${RED}[Finished]${WHITE} Please check error.log to be sure the installation is correct${NC}"
