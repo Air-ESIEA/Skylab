@@ -15,69 +15,28 @@ echo -e "${NC}"
 
 #Program
 echo -e "\t\t${YELLOW}[Running]${WHITE} Set datetime${NC}"
-timedatectl set-ntp 1 &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\x1b\x5b\x41\t\t${YELLOW}[Done]${WHITE} Set datetime${NC}   "
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Set datetime${NC}   "
-}
-echo $ERROR >> $STACK_ERROR
-
+timedatectl set-ntp 1 &> log.log 2> error.log
+echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Set datetime${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Partitioning${NC}"
-sfdisk /dev/sda < part &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\x1b\x5b\x41\t\t${YELLOW}[Done]${WHITE} Partitioning${NC}   "
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Partitioning${NC}   "
-}
-echo $ERROR >> $STACK_ERROR
+sfdisk /dev/sda < part &> log.log 2> error.log
+echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Partitioning${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Formatting and mounting${NC}"
-mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\x1b\x5b\x41\t\t${YELLOW}[Done]${WHITE} Formatting and mounting${NC}   "
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Formatting and mounting${NC}   "
-}
-echo $ERROR >> $STACK_ERROR
+mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage &> log.log 2> error.log
+echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Formatting and mounting${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Installation of basic packages${NC}"
-pacstrap /mnt base base-devel &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\x1b\x5b\x41\t\t${YELLOW}[Done]${WHITE} Installation of basic packages${NC}   "
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Installation of basic packages${NC}   "
-}
-echo $ERROR >> $STACK_ERROR
+pacstrap /mnt base base-devel &> log.log 2> error.log
+echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Installation of basic packages${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Generate fstab file${NC}"
-genfstab -U /mnt >> /mnt/etc/fstab &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\x1b\x5b\x41\t\t${YELLOW}[Done]${WHITE} Generate fstab file${NC}   "
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Generate fstab file${NC}   "
-}
-echo $ERROR >> $STACK_ERROR
+genfstab -U /mnt >> /mnt/etc/fstab &> log.log 2> error.log
+echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Generate fstab file${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Run]${WHITE} Chroot script${NC}"
@@ -91,13 +50,5 @@ echo -e "\t\t${YELLOW}[Run]${WHITE} Chroot script${NC}"
   then
     cp error.log /mnt/root
   arch-chroot /mnt /root/chroot.sh
-} &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\t\t${YELLOW}[Done]${WHITE} Chroot script${NC}"
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\t\t${GREEN}[Done]${WHITE} Chroot script${NC}"
-}
-echo $ERROR >> $STACK_ERROR
+} &> log.log 2> error.log
+echo -e "\t\t${GREEN}[Done]${WHITE} Chroot script${NC}"

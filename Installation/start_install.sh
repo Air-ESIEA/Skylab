@@ -22,20 +22,8 @@ echo -e "${BG_ORANGE}${YELLOW}[Downloading]${WHITE} Installation scripts${NC}"
 {
   pacman -Sy --noconfirm git
   git clone http://github.com/Air-ESIEA/Skylab
-} &> $LOG 2> $ERROR
-if [$? -ne 0]
-then {
-  echo -e "\x1b\x5b\x41${BG_ORANGE}${YELLOW}[Downloaded]${WHITE} Installation scripts${NC} "
-  echo -e "${BG_ORANGE}${RED}[Error]${WHITE} One or more errors appeared, refer to error.log"
-}
-else {
-  echo -e "\x1b\x5b\x41${BG_ORANGE}${GREEN}[Downloaded]${WHITE} Installation scripts${NC} "
-}
-echo $ERROR >> $STACK_ERROR
-
-
-echo $LOG >> log.log
-echo $STACK_ERROR >> error.log
+} &> log.log 2> error.log
+echo -e "\x1b\x5b\x41${BG_ORANGE}${GREEN}[Downloaded]${WHITE} Installation scripts${NC} "
 
 
 echo -e "\t${BG_WHITE}${YELLOW}[Run]${WHITE} Installation script${NC}"
