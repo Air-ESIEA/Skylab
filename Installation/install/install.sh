@@ -25,7 +25,9 @@ echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Partitioning${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Formatting and mounting${NC}"
-mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage &>> log.log 2> error.log
+{
+  mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage
+} &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Formatting and mounting${NC}   "
 
 
@@ -35,7 +37,9 @@ echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Installation of basic packages${
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Generate fstab file${NC}"
-genfstab -U /mnt >> /mnt/etc/fstab &>> log.log 2> error.log
+{
+  genfstab -U /mnt >> /mnt/etc/fstab
+} &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Generate fstab file${NC}   "
 
 

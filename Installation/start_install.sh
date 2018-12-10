@@ -20,7 +20,7 @@ echo -e "${NC}"
 clear
 echo -e "${BG_ORANGE}${YELLOW}[Downloading]${WHITE} Installation scripts${NC}"
 {
-  pacman -Sy --noconfirm git
+  pacman -Syu --noconfirm git
   git clone http://github.com/Air-ESIEA/Skylab
 } &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41${BG_ORANGE}${GREEN}[Downloaded]${WHITE} Installation scripts${NC} "
@@ -34,9 +34,3 @@ echo -e "\t${BG_WHITE}${GREEN}[Done]${WHITE} Installation script${NC}"
 
 echo -e "${BG_WHITE}${RED}[Finished]${WHITE} Please check error.log to be sure the installation is correct${NC}"
 echo "Tape 'reboot' and press enter to reboot"
-if [-e "/mnt/root/log.log"]
-then
-  cp /mnt/root/log.log ~/
-if [-e "/mnt/root/error.log"]
-then
-  cp /mnt/root/error.log ~/
