@@ -14,7 +14,7 @@ YELLOW='\033[93m'
 GREEN='\033[92m'
 NC='\033[40;37m'
 #Set colors
-echo -e "${NC}"
+printf "%s" "${NC}"
 
 #Program
 clear
