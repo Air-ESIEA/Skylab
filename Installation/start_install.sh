@@ -20,15 +20,17 @@ echo -e "${NC}"
 clear
 echo -e "${BG_ORANGE}${YELLOW}[Downloading]${WHITE} Installation scripts${NC}"
 {
-  pacman -Syu --noconfirm git
+  pacman -Sy --noconfirm git
   git clone http://github.com/Air-ESIEA/Skylab
 } &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41${BG_ORANGE}${GREEN}[Downloaded]${WHITE} Installation scripts${NC} "
 
 
 echo -e "\t${BG_WHITE}${YELLOW}[Run]${WHITE} Installation script${NC}"
-cd Skylab/Installation/install
-./install.sh
+{
+  cd Skylab/Installation/install
+  ./install.sh
+} &>> log.log 2> error.log
 echo -e "\t${BG_WHITE}${GREEN}[Done]${WHITE} Installation script${NC}"
 
 

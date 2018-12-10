@@ -32,7 +32,9 @@ echo -e "\x1b\x5b\x41\t\t\t${GREEN}[Done]${WHITE} Update and install packages${N
 
 
 echo -e "\t\t\t${YELLOW}[Running]${WHITE} Enable processes at start-up${NC}"
-systemctl start sshd && systemctl enable sshd &>> log.log 2> error.log
+{
+  systemctl start sshd && systemctl enable sshd
+} &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t\t${GREEN}[Done]${WHITE} Enable processes at start-up${NC}"
 
 

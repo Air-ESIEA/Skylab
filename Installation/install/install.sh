@@ -47,9 +47,7 @@ echo -e "\t\t${YELLOW}[Run]${WHITE} Chroot script${NC}"
 {
   cp chroot.sh /mnt/root/
   cp list-pkg /mnt/root/
-  if [-e "log.log"]
-  then
-    cp log.log /mnt/root/
+  cp log.log /mnt/root/
   if [-e "error.log"]
   then
     cp error.log /mnt/root
