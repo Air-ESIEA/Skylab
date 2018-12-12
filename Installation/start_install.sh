@@ -14,7 +14,7 @@ YELLOW='\033[93m'
 GREEN='\033[92m'
 NC='\033[40;37m'
 #Set colors
-echo -e "${NC}"
+printf "%s" "${NC}"
 
 #Program
 clear
@@ -27,16 +27,12 @@ echo -e "\x1b\x5b\x41${BG_ORANGE}${GREEN}[Downloaded]${WHITE} Installation scrip
 
 
 echo -e "\t${BG_WHITE}${YELLOW}[Run]${WHITE} Installation script${NC}"
-cd Skylab/Installation/install
-./install.sh
+{
+  cd Skylab/Installation/install
+  ./install.sh
+} &>> log.log 2> error.log
 echo -e "\t${BG_WHITE}${GREEN}[Done]${WHITE} Installation script${NC}"
 
 
 echo -e "${BG_WHITE}${RED}[Finished]${WHITE} Please check error.log to be sure the installation is correct${NC}"
 echo "Tape 'reboot' and press enter to reboot"
-if [-e "/mnt/root/log.log"]
-then
-  cp /mnt/root/log.log ~/
-if [-e "/mnt/root/error.log"]
-then
-  cp /mnt/root/error.log ~/

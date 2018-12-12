@@ -11,7 +11,7 @@ YELLOW='\033[93m'
 GREEN='\033[92m'
 NC='\033[40;37m'
 #Set colors
-echo -e "${NC}"
+printf "%s" "${NC}"
 
 #Program
 echo -e "\t\t${YELLOW}[Running]${WHITE} Set datetime${NC}"
@@ -25,7 +25,9 @@ echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Partitioning${NC}   "
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Formatting and mounting${NC}"
-mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage &>> log.log 2> error.log
+{
+  mkfs.ext4 /dev/sda2 && mkfs.ext4 /dev/sda3 && mount /dev/sda2 /mnt && mkdir /mnt/storage && mount /dev/sda3 /mnt/storage
+} &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Formatting and mounting${NC}   "
 
 
@@ -35,7 +37,9 @@ echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Installation of basic packages${
 
 
 echo -e "\t\t${YELLOW}[Running]${WHITE} Generate fstab file${NC}"
-genfstab -U /mnt >> /mnt/etc/fstab &>> log.log 2> error.log
+{
+  genfstab -U /mnt >> /mnt/etc/fstab
+} &>> log.log 2> error.log
 echo -e "\x1b\x5b\x41\t\t${GREEN}[Done]${WHITE} Generate fstab file${NC}   "
 
 
@@ -43,9 +47,7 @@ echo -e "\t\t${YELLOW}[Run]${WHITE} Chroot script${NC}"
 {
   cp chroot.sh /mnt/root/
   cp list-pkg /mnt/root/
-  if [-e "log.log"]
-  then
-    cp log.log /mnt/root/
+  cp log.log /mnt/root/
   if [-e "error.log"]
   then
     cp error.log /mnt/root
