@@ -38,7 +38,7 @@ function select_a_user(){
       _system_users="$_system_users $_user"
     fi
   done < /etc/passwd
-  # remove leading space, sort, add type
+  # remove space, sort, add type
   _normal_users=$(echo "$_normal_users" | sed 's/ //' | tr " " "\n" | sort -b)
   _normal_users=$(echo "$_normal_users" | tr "\n" " " | sed -e 's/ / - /g')
   _system_users=$(echo "$_system_users" | sed 's/ //' | tr " " "\n" | sort -b)
