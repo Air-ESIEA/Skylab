@@ -20,7 +20,7 @@ function display_output(){
   local h=${1-10}      # box height default 10
   local w=${2-41}     # box width default 41
   local t=${3-Output}   # box title
-  dialog --backtitle "Admin GUI script" --title "${t}" --clear --msgbox "$(<$OUTPUT)" ${h} ${w}
+  dialog --backtitle "Admin Utilitary" --title "${t}" --clear --msgbox "$(<$OUTPUT)" ${h} ${w}
 }
 
 function display_text_output(){

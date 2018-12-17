@@ -333,7 +333,6 @@ function change_primary_group(){
     return
   fi
 
-
   usermod -g "$selected_group" "$user" >$OUTPUT 2>&1
 
   # check result
@@ -354,7 +353,6 @@ function change_secondary_groups(){
   if [ -z "$user" ]; then
     return
   fi
-
 
   local groupid=
   local user_groups=
@@ -382,7 +380,6 @@ function change_secondary_groups(){
     fi
   done
 
-
   # select groups
   local selected_groups=
   dialog --clear --backtitle "$BTITLE" \
@@ -398,7 +395,6 @@ function change_secondary_groups(){
     #  echo "cancel pressed"
     return
   fi
-
 
   echo "ERROR:">$OUTPUT
   local flagerr=0
