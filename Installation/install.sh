@@ -11,6 +11,7 @@ YELLOW='\033[93m'
 GREEN='\033[92m'
 NC='\033[40;37m'
 #Set colors
+clear
 printf "%s" "${NC}"
 
 #Program
@@ -51,6 +52,7 @@ echo -e "\t${YELLOW}[Run]${WHITE} Chroot script${NC}"
   if [-e "error.log"]
   then
     cp error.log /mnt/root
+  fi
   arch-chroot /mnt /root/chroot.sh
 } &>> log.log 2> error.log
 echo -e "\t${GREEN}[Done]${WHITE} Chroot script${NC}"
