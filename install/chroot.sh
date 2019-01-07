@@ -7,4 +7,4 @@ pacman -S --noconfirm grub intel-ucode
 systemctl start sshd && systemctl enable sshd
 grub-install --target=i386-pc /dev/sda
 grub-mkconfig -o /boot/grub/grub.cfg
-source ../service/services.sh
+#source ../service/services.sh

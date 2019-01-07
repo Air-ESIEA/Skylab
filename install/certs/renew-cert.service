@@ -1,0 +1,7 @@
+[Unit]
+Description=Renew Certbot certificate
+Wants=dhcpcd.service
+
+[Service]
+type=oneshot
+ExecStart=/usr/bin/certbot renew
