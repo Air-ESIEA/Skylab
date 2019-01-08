@@ -1,0 +1,20 @@
+Gitea is the git server
+Setting for Gitea are located in /etc/gitea/app.ini
+Data files should be located under /var/lib/gitea
+
+Gitea use its own user gitea
+The admin account that can be used in the web interface is root, with the password of the root account at time of writing
+
+Logs files can be accessed at /var/log/gitea/
+There is 3 logs files :
+	- gitea.log for the gitea website actual working
+	- xorm.log for the database logs
+	- http.log for the webserver
+
+Normally, http.log should be empty, as Apache Web Server is used as a proxy, gitea relies on it to serve http pages
+
+Gitea was originally deployed using PostgreSQL, so there could be some remnants here and there.
+It is now using MariaDB, under its own user gitea, with the gitea database
+If the database have to be replaced, beware of charset compatibility and refer to the Archlinux Wiki page on gitea
+
+At time of writing, repos are located under /var/lib/gitea/repos/ but it is intended to put them under /storage/gitea/repos
