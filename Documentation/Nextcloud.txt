@@ -1,0 +1,13 @@
+Nextcloud is a webapp service served by the Apache web server
+
+Conf files are located under /etc/webapps/nextcloud
+Data files for the web pages are located under /var/lib/webapps/nextcloud/
+# TO CHECK
+log files should be located under Apaches logs at /var/log/httpd
+Files uploaded to nextcloud should be stored under /storage/nextcloud/
+
+Nextcloud used mariaDB databases under its own user nextcloud with its own database nextcloud
+
+Beware of updates of either php or nextcloud package, as they can break the nextcloud webapp
+In any cases, should you upgrade the system, remember to disable 3rd party apps before commiting the updates, as instructed in The Archlinux wiki pages
+The wiki is quite extensive, and you should find answers on question you have in it
