@@ -1,0 +1,16 @@
+The Apache webserver is somewhat the backbone of Skylab; it serve most of the service via webpages
+It is actually used to serve :
+	- skylab.tk webpages : This should be a mirror of air.esiea.fr for display reasons, or could be changed to a wiki on rocketery/stuff
+	- Gitea git server : Apache work as a proxy, serving gitea webpages under git.skylab.tk
+	- Nextcloud : Apache run Nextcloud webapps as the http engine for it under nextcloud.skylab.tk
+
+Settings are located under /etc/httpd/
+Virtual Host are configured under /etc/httpd/conf/extra/httpd-vhost.conf
+# TODO more settings details
+
+Each application served by Apache webserver is located under its own file tree, with main websites located under /storage/sites/
+# CHECK LOCATION WITH GUI
+
+Logs files are located under /var/log/httpd/ with some subdirectory for vhosts
+
+For further details on configuration, check the extensive Archlinux wiki page for Apache web server
