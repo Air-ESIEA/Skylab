@@ -1,0 +1,6 @@
+install -D -m 755 "skylab-borg-backup" "/usr/bin/skylab-borg-backup"
+install -D -m 644 "skylab-borg-backup.service" "/usr/lib/systemd/system/skylab-borg-backup.service"
+install -D -m 644 "skylab-borg-backup.timer" "/usr/lib/systemd/system/skylab-borg-backup.timer"
+install -D -m 644 "skylab-borg-backup.conf" "/etc/skylab-borg-backup.conf"
+install -D -m 755 "systemd-unit-mailer" "/usr/bin/systemd-unit-mailer"
+install -D -m 644 "systemd-unit-mailer.service" "/usr/lib/systemd/system/systemd-unit-mailer.service"
