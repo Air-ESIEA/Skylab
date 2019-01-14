@@ -1,0 +1,19 @@
+The mail server is the combinaison of Postfix for transfert and dovecot for delivery
+Conf files:
+Postfix:
+	conf files are located at /etc/postfix/
+	the main file is main.cf
+Dovecot:
+	conf files is located at /etc/dovecot/dovecot.conf
+
+Log files:
+Postfix:
+	Logs can be accessed by using 
+	# journalctl -u postfix.service
+Dovecot:
+	logs can be acessed bu using
+	# journalctl -u dovecot.service
+
+Further information on configuration can be found directly in the conf files comments
+Internet is also a good source. Check the Archlinux wiki, and the project's webpages
+In any case, should you alter conf files, good luck, for Postfix/Dovecot is a pain in the arse
