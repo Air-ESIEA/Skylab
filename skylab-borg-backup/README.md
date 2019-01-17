@@ -19,13 +19,10 @@ The file is rather self-explanatory, but here are some hints:
 * To prevent manual intervention for filling in your repository password interactively, you can define `BORG_PASSPHRASE`.
 
 Of course, prior to using `skylab-borg-backup` for the `REPOSITORY` as defined in `/etc/skylab-borg-backup.conf`, you should setup the repository by i.e.:
-```bash
 borg init -e keyfile <repository>
-```
 
 ## Running every night at 04:00
 To run the script every night at 04:00, you can enable and start the related timer by:
-```bash
+
 systemctl enable skylab-borg-backup.timer
 systemctl start skylab-borg-backup.timer
-```
