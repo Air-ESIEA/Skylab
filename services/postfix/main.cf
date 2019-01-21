@@ -89,8 +89,8 @@ data_directory = /var/lib/postfix
 # from gethostname(). $myhostname is used as a default value for many
 # other configuration parameters.
 #
-#myhostname = host.domain.tld
-#myhostname = virtual.domain.tld
+myhostname = skylab.tk
+#myhostname = mail.skylab.tk
 
 # The mydomain parameter specifies the local internet domain name.
 # The default is to use $myhostname minus the first component.
@@ -112,7 +112,7 @@ data_directory = /var/lib/postfix
 # myorigin also specifies the default domain name that is appended
 # to recipient addresses that have no @domain part.
 #
-#myorigin = $myhostname
+myorigin = skylab.tk
 #myorigin = $mydomain
 
 # RECEIVING MAIL
@@ -174,7 +174,7 @@ data_directory = /var/lib/postfix
 #
 # See also below, section "REJECTING MAIL FOR UNKNOWN LOCAL USERS".
 #
-#mydestination = $myhostname, localhost.$mydomain, localhost
+mydestination = $myhostname, localhost.$mydomain, localhost
 #mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain
 #mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain,
 #	mail.$mydomain, www.$mydomain, ftp.$mydomain
@@ -259,6 +259,18 @@ unknown_local_recipient_reject_code = 550
 # Specify "mynetworks_style = host" when Postfix should "trust"
 # only the local machine.
 # 
+smtpd_use_tls = yes
+smtpd_tls_security_level = encrypt
+smtpd_tls_key_file = /etc/ssl/private/smtp.skylab.tk.key
+smtpd_tls_cert_file = /etc/ssl/certs/smtp.skylab.tk.crt
+smtpd_tls_CAfile = /etc/ssl/certs/cacert.pem
+tls_random_source = dev:/dev/urandom
+smtpd_recipient_restrictions = 
+	permit_sasl_authenticated
+	#check_recipient_access hash:/etc/filtered_domains
+	permit_mynetworks
+	reject_unauth_destination
+
 #mynetworks_style = class
 #mynetworks_style = subnet
 #mynetworks_style = host
@@ -274,7 +286,7 @@ unknown_local_recipient_reject_code = 550
 # of listing the patterns here. Specify type:table for table-based lookups
 # (the value on the table right-hand side is not used).
 #
-#mynetworks = 168.100.189.0/28, 127.0.0.0/8
+mynetworks = 192.168.0.0/24, 127.0.0.0/8, 192.168.1.0/24, 88.170.232.166
 #mynetworks = $config_directory/mynetworks
 #mynetworks = hash:/etc/postfix/network_table
 
@@ -306,7 +318,7 @@ unknown_local_recipient_reject_code = 550
 # list this system as their primary or backup MX host. See the
 # permit_mx_backup restriction description in postconf(5).
 #
-#relay_domains = $mydestination
+relay_domains = $mydestination
 
 # INTERNET OR INTRANET
 
@@ -324,10 +336,7 @@ unknown_local_recipient_reject_code = 550
 # If you're connected via UUCP, see also the default_transport parameter.
 #
 #relayhost = $mydomain
-#relayhost = [gateway.my.domain]
-#relayhost = [mailserver.isp.tld]
-#relayhost = uucphost
-#relayhost = [an.ip.add.ress]
+
 
 # REJECTING UNKNOWN RELAY USERS
 #
@@ -676,7 +685,7 @@ readme_directory = /usr/share/doc/postfix
 inet_protocols = ipv4
 meta_directory = /etc/postfix
 shlib_directory = /usr/lib/postfix
-mydestination = air.esiea.fr, bdj.esiea.fr, skylab.tk
+#mydestination = air.esiea.fr, bdj.esiea.fr, skylab.tk
 myorigin = skylab.tk
 mynetworks_style = subnet
 relayhost = smtp.free.fr
