@@ -9,8 +9,8 @@ You can (and should) run it daily and for now it will keep 7 daily, 4 weekly, 12
 1. Install `borg` on your system
 1. Copy `skylab-borg-backup.conf` to folder `/etc`.
    > **This should only be done the first time**
-1. Copy `skylab-borg-backup.service` and `skylab-borg-backup.timer` to folder `/etc/systemd/system` or `/usr/lib/systemd/system`.
-1. Copy `skylab-borg-backup` to folder `/usr/bin`
+1. Copy `skylab-borg-backup.service`, `skylab-borg-backup.timer` and `unit-status-mail@.service` to folder `/etc/systemd/system`.
+1. Copy `skylab-borg-backup` and `unit-status-mail` to folder `/usr/bin`
 
 # Configuration
 File `/etc/skylab-borg-backup.conf` contains all configuration options of the backup script.
